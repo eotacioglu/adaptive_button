@@ -3,8 +3,8 @@ library adaptive_button;
 import 'package:flutter/material.dart';
 export 'package:adaptive_button/adaptive_button.dart';
 
-class AdaptiveButton extends StatefulWidget {
-  const AdaptiveButton(
+class AdaptiveButtonWeb extends StatefulWidget {
+  const AdaptiveButtonWeb(
       {super.key,
       this.width,
       this.height,
@@ -25,10 +25,10 @@ class AdaptiveButton extends StatefulWidget {
   final Widget? loadingWidget;
 
   @override
-  State<AdaptiveButton> createState() => _AdaptiveButtonState();
+  State<AdaptiveButtonWeb> createState() => _AdaptiveButtonWebState();
 }
 
-class _AdaptiveButtonState extends State<AdaptiveButton> {
+class _AdaptiveButtonWebState extends State<AdaptiveButtonWeb> {
   bool isLoading = false;
 
   @override
