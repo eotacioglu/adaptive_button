@@ -45,9 +45,9 @@ flutter:
         pluginClass: AdaptiveButtonPlugin
       windows:
         pluginClass: AdaptiveButtonPluginCApi
-      web:
-        pluginClass: AdaptiveButtonWeb
-        fileName: adaptive_button_web.dart
+#      web:
+#        pluginClass: AdaptiveButtonWeb
+#        fileName: adaptive_button_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
