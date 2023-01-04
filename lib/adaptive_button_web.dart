@@ -1,7 +1,7 @@
-library adaptive_button;
+library adaptive_button_web;
 
 import 'package:flutter/material.dart';
-export 'package:adaptive_button/adaptive_button.dart';
+export 'package:adaptive_button/adaptive_button_web.dart';
 
 class AdaptiveButtonWeb extends StatefulWidget {
   const AdaptiveButtonWeb(
