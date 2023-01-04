@@ -1,3 +1,3 @@
-## 0.1.0
+## 0.1.3
 
-AdaptiveButton fixed problem is web platform.
+AdaptiveButton web button loading widget bug fixed.

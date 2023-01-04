@@ -88,7 +88,9 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                   ? isLoading == true
                       ? widget.loadingWidget
                       : widget.child
-                  : widget.child): ElevatedButton(
+                  : widget.child):
+
+      ElevatedButton(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius:
@@ -110,7 +112,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
               : widget.onPressed,
           child: widget.enabledLoading == true
               ? isLoading == true
-              ? widget.loadingWidget
+              ? widget.loadingWidget ?? const CircularProgressIndicator()
               : widget.child
               : widget.child),
     );
