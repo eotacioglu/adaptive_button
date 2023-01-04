@@ -10,9 +10,7 @@ Import the following package.
 import 'package:adaptive_button/adaptive_button.dart';
 ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials, samples, guidance on
-mobile development, and a full API reference.
+![](example/lib/assets/adaptiveButton.png)
 
 ```dart
 @override
