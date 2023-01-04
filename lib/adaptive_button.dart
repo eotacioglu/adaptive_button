@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 export 'package:adaptive_button/adaptive_button.dart';
+export 'adaptive_button_web.dart';
 class AdaptiveButton extends StatefulWidget {
   const AdaptiveButton(
       {super.key,
