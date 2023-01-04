@@ -2,9 +2,9 @@ library adaptive_button;
 
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 export 'package:adaptive_button/adaptive_button.dart';
-export 'adaptive_button_web.dart';
 class AdaptiveButton extends StatefulWidget {
   const AdaptiveButton(
       {super.key,
@@ -39,7 +39,9 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
       width: widget.width,
       height: widget.height,
       margin: const EdgeInsets.all(8),
-      child: Platform.isIOS
+      child:
+      kIsWeb ==true?
+      Platform.isIOS
           ? CupertinoButton(
               borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -86,7 +88,31 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                   ? isLoading == true
                       ? widget.loadingWidget
                       : widget.child
-                  : widget.child),
+                  : widget.child): ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius:
+                  widget.borderRadius ?? BorderRadius.circular(8)),
+              backgroundColor: widget.color,
+              padding: const EdgeInsets.symmetric(horizontal: 8)),
+          onPressed: widget.enabledLoading == true
+              ? isLoading != true
+              ? () async {
+            setState(() {
+              isLoading = true;
+            });
+            await widget.onPressed();
+            setState(() {
+              isLoading = false;
+            });
+          }
+              : null
+              : widget.onPressed,
+          child: widget.enabledLoading == true
+              ? isLoading == true
+              ? widget.loadingWidget
+              : widget.child
+              : widget.child),
     );
   }
 }
