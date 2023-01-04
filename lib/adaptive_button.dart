@@ -40,7 +40,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
       height: widget.height,
       margin: const EdgeInsets.all(8),
       child:
-      kIsWeb ==true?
+      kIsWeb !=true?
       Platform.isIOS
           ? CupertinoButton(
               borderRadius: widget.borderRadius ?? BorderRadius.circular(8),

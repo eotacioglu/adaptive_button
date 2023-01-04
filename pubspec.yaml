@@ -1,6 +1,6 @@
 name: adaptive_button
 description: Flutter AdaptiveButton
-version: 0.0.9
+version: 0.1.0
 homepage: https://github.com/eotacioglu/adaptive_button.git
 
 environment:
@@ -45,9 +45,10 @@ flutter:
         pluginClass: AdaptiveButtonPlugin
       windows:
         pluginClass: AdaptiveButtonPluginCApi
-#      web:
-#        pluginClass: AdaptiveButtonWeb
-#        fileName: adaptive_button_web.dart
+
+      web:
+        pluginClass: AdaptiveButtonWeb
+        fileName: adaptive_button_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
