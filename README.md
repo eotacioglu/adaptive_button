@@ -9,9 +9,7 @@ Import the following package.
 ```dart
 import 'package:adaptive_button/adaptive_button.dart';
 ```
-
-![](example/lib/assets/adaptiveButton.png)
-
+![](example/lib/assets/adaptiveButton.png) ![](example/lib/assets/adaptiveLoading.png)
 ```dart
 @override
 Widget build(BuildContext context) {
