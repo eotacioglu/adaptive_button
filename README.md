@@ -10,9 +10,7 @@ Import the following package.
 ```dart
 import 'package:adaptive_button/adaptive_button.dart';
 ```
-![](assets/1.png)![](assets/2.png)
-![](https://odiapp.s3.eu-central-1.amazonaws.com/KullaniciDosyalari/127/Fotograflar/12753888523201673272385351176.jpg)
-![](https://odiapp.s3.eu-central-1.amazonaws.com/KullaniciDosyalari/127/Fotograflar/12753888523201673272389483845.jpg)
+![](assets/1.png) ![](assets/2.png)
 
 ```dart
 @override
