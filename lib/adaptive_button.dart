@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 export 'package:adaptive_button/adaptive_button.dart';
+
 class AdaptiveButton extends StatefulWidget {
   const AdaptiveButton(
       {super.key,
@@ -16,6 +17,7 @@ class AdaptiveButton extends StatefulWidget {
       this.borderRadius,
       this.enabledLoading,
       this.loadingWidget});
+
 
   final double? width;
   final double? height;
@@ -39,31 +41,60 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
       width: widget.width,
       height: widget.height,
       margin: const EdgeInsets.all(8),
-      child:
-      kIsWeb !=true?
-      Platform.isIOS
-          ? CupertinoButton(
-              borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              color: widget.color ?? Colors.purple,
-              onPressed: widget.enabledLoading == true
-                  ? isLoading != true
-                      ? () async {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          await widget.onPressed();
-                          setState(() {
-                            isLoading = false;
-                          });
-                        }
-                      : null
-                  : widget.onPressed,
-              child: widget.enabledLoading == true
-                  ? isLoading == true
-                      ? widget.loadingWidget!
-                      : widget.child
-                  : widget.child)
+      child: kIsWeb != true
+          ? Platform.isIOS
+              ? CupertinoButton(
+                  borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  color: widget.color ?? Colors.purple,
+                  onPressed: widget.enabledLoading == true
+                      ? isLoading != true
+                          ? () async {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              await widget.onPressed();
+                              setState(() {
+                                isLoading = false;
+                              });
+                            }
+                          : null
+                      : widget.onPressed,
+                  child: widget.enabledLoading == true
+                      ? isLoading == true
+                          ? widget.loadingWidget ?? const CupertinoActivityIndicator()
+                          : widget.child
+                      : widget.child)
+              : ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              widget.borderRadius ?? BorderRadius.circular(8)),
+                      backgroundColor: widget.color,
+                      padding: const EdgeInsets.symmetric(horizontal: 8)),
+                  onPressed: widget.enabledLoading == true
+                      ? isLoading != true
+                          ? () async {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              await widget.onPressed();
+                              setState(() {
+                                isLoading = false;
+                              });
+                            }
+                          : null
+                      : widget.onPressed,
+                  child: widget.enabledLoading == true
+                      ? isLoading == true
+                          ? SizedBox(
+                              height: 30,
+                              width: 30,
+                              child: widget.loadingWidget ??
+                                  const CircularProgressIndicator(),
+                            )
+                          : widget.child
+                      : widget.child)
           : ElevatedButton(
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -86,35 +117,16 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                   : widget.onPressed,
               child: widget.enabledLoading == true
                   ? isLoading == true
-                      ? widget.loadingWidget
+                      ? SizedBox(
+                          height: 30,
+                          width: 30,
+                          child: widget.loadingWidget ??
+                              const CircularProgressIndicator(),
+                        )
                       : widget.child
-                  : widget.child):
-
-      ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius:
-                  widget.borderRadius ?? BorderRadius.circular(8)),
-              backgroundColor: widget.color,
-              padding: const EdgeInsets.symmetric(horizontal: 8)),
-          onPressed: widget.enabledLoading == true
-              ? isLoading != true
-              ? () async {
-            setState(() {
-              isLoading = true;
-            });
-            await widget.onPressed();
-            setState(() {
-              isLoading = false;
-            });
-          }
-              : null
-              : widget.onPressed,
-          child: widget.enabledLoading == true
-              ? isLoading == true
-              ? widget.loadingWidget ?? const CircularProgressIndicator()
-              : widget.child
-              : widget.child),
+                  : widget.child),
     );
   }
+
+
 }

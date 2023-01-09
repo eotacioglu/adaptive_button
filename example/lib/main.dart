@@ -52,6 +52,25 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
               height: 50,
               width: MediaQuery.of(context).size.width,
               enabledLoading: true,
+
+              child: const Text("AdaptiveButton - Non Loading Widget"),
+              onPressed: () async {
+                await Future.delayed(const Duration(seconds: 2));
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return const AlertDialog(
+                      content: Text(
+                          "Merhaba ben AdaptiveButton bulunduğum platforma göre şekillenirim:)"),
+                    );
+                  },
+                );
+              },
+            ),
+            AdaptiveButton(
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              enabledLoading: true,
               loadingWidget: const SizedBox(
                   width: 20,
                   height: 20,

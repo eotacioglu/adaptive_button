@@ -1,6 +1,7 @@
 name: adaptive_button
-description: Flutter AdaptiveButton
-version: 0.1.3
+description: While AdaptiveButton is compatible with the platform, it disables the clicking feature of the button
+  for your asynchronous operations and displays a widget on the button while waiting.
+version: 0.1.4
 homepage: https://github.com/eotacioglu/adaptive_button.git
 
 environment:
