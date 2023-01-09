@@ -10,9 +10,7 @@ Import the following package.
 ```dart
 import 'package:adaptive_button/adaptive_button.dart';
 ```
-
 ![](assets/1.png)![](assets/2.png)
-
 
 ```dart
 @override
