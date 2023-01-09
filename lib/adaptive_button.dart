@@ -18,7 +18,6 @@ class AdaptiveButton extends StatefulWidget {
       this.enabledLoading,
       this.loadingWidget});
 
-
   final double? width;
   final double? height;
   final Widget child;
@@ -62,7 +61,8 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                       : widget.onPressed,
                   child: widget.enabledLoading == true
                       ? isLoading == true
-                          ? widget.loadingWidget ?? const CupertinoActivityIndicator()
+                          ? widget.loadingWidget ??
+                              const CupertinoActivityIndicator()
                           : widget.child
                       : widget.child)
               : ElevatedButton(
@@ -127,6 +127,4 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                   : widget.child),
     );
   }
-
-
 }
