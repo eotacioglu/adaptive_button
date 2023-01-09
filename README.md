@@ -11,7 +11,7 @@ Import the following package.
 import 'package:adaptive_button/adaptive_button.dart';
 ```
 
-AdaptiveButton required  ![Future<void> onPressed and Widget child]  
+AdaptiveButton required  ![]Future<void> onPressed and Widget child  
 
 ![](https://github.com/eotacioglu/adaptive_button/raw/main/example/lib/assets/adaptiveButton.webp) ![](https://github.com/eotacioglu/adaptive_button/raw/main/example/lib/assets/adaptiveLoading.webp) ![](https://github.com/eotacioglu/adaptive_button/raw/main/example/lib/assets/clicked.webp)
 
