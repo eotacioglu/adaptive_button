@@ -11,10 +11,14 @@ Import the following package.
 import 'package:adaptive_button/adaptive_button.dart';
 ```
 
-| iOS                                                                                                                                                         | Android                                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img width="520" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/1.png"> | <img width="497" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/2.png"> |
+| iOS                                                                                                             | iOS                                                                                                             |
+|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| <img width="450" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/1.png"> | <img width="450" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/2.png"> |
 
+
+| Android                                                                                                          | Android                                                                                                          |
+|------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| <img width="450" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a1.png"> | <img width="450" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a2.png"> |
 
 
 

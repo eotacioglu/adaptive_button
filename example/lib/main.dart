@@ -52,7 +52,7 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
               height: 50,
               width: MediaQuery.of(context).size.width,
               enabledLoading: true,
-              child: const Text("AdaptiveButton - Non Loading Widget"),
+              child: const Center(child: Text("AdaptiveButton - Without Custom Loading Widget(default: Adaptive indicator widget)")),
               onPressed: () async {
                 await Future.delayed(const Duration(seconds: 2));
                 showDialog(
@@ -76,7 +76,7 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                   child: CircularProgressIndicator(
                     color: Colors.amber,
                   )),
-              child: const Text("AdaptiveButton - Loading"),
+              child: const Text("AdaptiveButton - Custom Loading Widget"),
               onPressed: () async {
                 await Future.delayed(const Duration(seconds: 2));
                 showDialog(
