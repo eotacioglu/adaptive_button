@@ -13,7 +13,7 @@ import 'package:adaptive_button/adaptive_button.dart';
 
 | iOS                                                                                                                                                         | Android                                                                                                                                                         |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img width="520" alt="n1" src="https://odiapp.s3.eu-central-1.amazonaws.com/KullaniciDosyalari/127/Fotograflar/12753888523201673272385351176.jpg"> | <img width="497" alt="n2" src="https://odiapp.s3.eu-central-1.amazonaws.com/KullaniciDosyalari/127/Fotograflar/12753888523201673272389483845.jpg"> |
+| <img width="520" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/1.png"> | <img width="497" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/2.png"> |
 
 
 
