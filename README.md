@@ -18,13 +18,13 @@ import 'package:adaptive_button/adaptive_button.dart';
 
 | Android                                                                                                          | Android                                                                                                          |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| <img width="450" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a1.png"> | <img width="450" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a2.png"> |
+| <img width="450" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a2.png"> | <img width="450" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a1.png"> |
 
 
 
 ## AdaptiveButton required options
 
-Required "Widget child" and "Future<void> Function() onPressed"
+Required "Widget child" and `Future<void> Function() onPressed`
 ```dart
 @override
 Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ Widget build(BuildContext context) {
 ```
 ## Without loading widget
 
-By default it uses indicator when the "loadingWidget" property is empty.
+By default it uses indicator when the `loadingWidget` property is empty.
 
 ```dart
 @override
@@ -73,7 +73,7 @@ Widget build(BuildContext context) {
 ```
 ## Use without asynchronous
 
-Use without async when the "enableLoading" property is empty.
+Use without async when the `enableLoading` property is empty.
 
 ```dart
 @override
@@ -105,7 +105,7 @@ Widget build(BuildContext context) {
 ```
 #Sized property
 
-You can customize the size of the AdaptiveButton using the "width" and "height" properties.
+You can customize the size of the AdaptiveButton using the `width` and `height` properties.
 ```dart
 @override
 Widget build(BuildContext context) {
