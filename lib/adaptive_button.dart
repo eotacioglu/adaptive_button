@@ -18,14 +18,29 @@ class AdaptiveButton extends StatefulWidget {
       this.enabledLoading,
       this.loadingWidget});
 
+  /// [width] Changes the width property of the button
   final double? width;
+
+  ///`[height] Changes the height property of the button.
   final double? height;
+
+  ///[child] Determines the widget that will appear in the button. (required)
   final Widget child;
-  final Color? color;
-  final bool? enabledLoading;
-  final BorderRadius? borderRadius;
+
+  /// [onPressed] It is used for the action that will run when the button is clicked. (required)
   final Future Function() onPressed;
+
+  /// [enabledLoading] When set to `true`, it displays a widget as a child of the button in asynchronous operations. It defaults to `false`.
+  final bool? enabledLoading;
+
+  /// [loadingWidget] Sets the widget to be displayed as the child of the button while the button is loading.
   final Widget? loadingWidget;
+
+  ///  [color] Sets the button's background color.
+  final Color? color;
+
+  /// [borderRadius] Allows the corners of the button to be ovalized. It defaults to `BorderRadius.circular(8)`
+  final BorderRadius? borderRadius;
 
   @override
   State<AdaptiveButton> createState() => _AdaptiveButtonState();

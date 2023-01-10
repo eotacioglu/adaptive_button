@@ -19,8 +19,6 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -48,11 +46,14 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            /// Without [loadingWidget] property example and async function.
             AdaptiveButton(
               height: 50,
               width: MediaQuery.of(context).size.width,
               enabledLoading: true,
-              child: const Center(child: Text("AdaptiveButton - Without Custom Loading Widget(default: Adaptive indicator widget)")),
+              child: const Center(
+                  child: Text(
+                      "AdaptiveButton - Without Custom Loading Widget(default: Adaptive indicator widget)")),
               onPressed: () async {
                 await Future.delayed(const Duration(seconds: 2));
                 showDialog(
@@ -66,6 +67,8 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                 );
               },
             ),
+
+            /// With [loadingWidget] property example and async function.
             AdaptiveButton(
               height: 50,
               width: MediaQuery.of(context).size.width,
@@ -90,6 +93,8 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                 );
               },
             ),
+
+            /// Without [loadingWidget] and [enabledLoading] property example and  without async function.
             AdaptiveButton(
               color: Colors.amber,
               child: const Text(
@@ -109,6 +114,8 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                 debugPrint("AdaptiveButton Test Message");
               },
             ),
+
+            /// Usage with [borderRadius] property.
             AdaptiveButton(
               borderRadius: BorderRadius.circular(20),
               color: Colors.cyan,
@@ -117,6 +124,8 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                 debugPrint("AdaptiveButton Test Message");
               },
             ),
+
+            /// Usage with [width] and [height] property.
             AdaptiveButton(
               width: 250,
               height: 150,
