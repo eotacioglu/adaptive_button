@@ -3,6 +3,8 @@
 While AdaptiveButton is compatible with the platform, it disables the clicking feature of the button
 for your asynchronous operations and displays a widget on the button while waiting.
 
+You can easily use the AdaptiveButton on the " WEB " platform.
+
 ## Getting Started
 
 Import the following package.
