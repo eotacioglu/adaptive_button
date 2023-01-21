@@ -1,8 +1,8 @@
 name: adaptive_button
 description: AdaptiveButton is compatible with the platform, it disables the clicking feature of the button for your asynchronous operations and displays a widget on the button while waiting.
-version: 0.1.8
+version: 0.1.9
 homepage: https://github.com/eotacioglu/adaptive_button.git
-
+repository: https://github.com/eotacioglu/adaptive_button.git
 environment:
   sdk: '>=2.18.6 <3.0.0'
   flutter: ">=2.5.0"

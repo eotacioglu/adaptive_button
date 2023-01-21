@@ -21,6 +21,11 @@ import 'package:adaptive_button/adaptive_button.dart';
 | <img width="450" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a2.png"> | <img width="450" alt="n2" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/a1.png"> |
 
 
+|                                                        Web                                                        |
+|:-----------------------------------------------------------------------------------------------------------------:|
+| <img width="1000" alt="n1" src="https://raw.githubusercontent.com/eotacioglu/adaptive_button/main/assets/w1.png"> | 
+
+
 
 ## AdaptiveButton required options
 

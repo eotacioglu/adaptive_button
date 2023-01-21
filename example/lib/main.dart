@@ -55,7 +55,7 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                   child: Text(
                       "AdaptiveButton - Without Custom Loading Widget(default: Adaptive indicator widget)")),
               onPressed: () async {
-                await Future.delayed(const Duration(seconds: 2));
+                await Future.delayed(const Duration(seconds: 5));
                 showDialog(
                   context: context,
                   builder: (context) {
@@ -81,7 +81,7 @@ class _AdaptiveButtonViewState extends State<AdaptiveButtonView> {
                   )),
               child: const Text("AdaptiveButton - Custom Loading Widget"),
               onPressed: () async {
-                await Future.delayed(const Duration(seconds: 2));
+                await Future.delayed(const Duration(seconds: 5));
                 showDialog(
                   context: context,
                   builder: (context) {

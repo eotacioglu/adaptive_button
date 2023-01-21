@@ -1,3 +1,3 @@
-## 0.1.8
+## 0.1.9
 
 AdaptiveButton web button loading widget bug fixed.
