@@ -161,3 +161,5 @@ Widget build(BuildContext context) {
 - `Widget? loadingWidget` : Sets the widget to be displayed as the child of the button while the button is loading.
 - `Color? color` : Sets the button's background color.
 - `BorderRadius? borderRadius` : Allows the corners of the button to be ovalized. It defaults to `BorderRadius.circular(8)`
+- `EdgeInsetsGeometry? padding` : Allows the padding. It defaults to `EdgeInsets.symmetric(horizontal: 16)`
+- `EdgeInsetsGeometry? margin` : Allows the margin. It defaults to `EdgeInsets.zero`

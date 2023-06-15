@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -13,7 +14,9 @@ class AdaptiveButton extends StatefulWidget {
       this.color,
       this.borderRadius,
       this.enabledLoading,
-      this.loadingWidget});
+      this.loadingWidget,
+      this.padding,
+      this.margin});
 
   /// [width] Changes the width property of the button
   final double? width;
@@ -25,7 +28,7 @@ class AdaptiveButton extends StatefulWidget {
   final Widget child;
 
   /// [onPressed] It is used for the action that will run when the button is clicked. (required)
-  final Future Function() onPressed;
+  final FutureOr<dynamic> Function() onPressed;
 
   /// [enabledLoading] When set to `true`, it displays a widget as a child of the button in asynchronous operations. It defaults to `false`.
   final bool? enabledLoading;
@@ -39,6 +42,12 @@ class AdaptiveButton extends StatefulWidget {
   /// [borderRadius] Allows the corners of the button to be ovalized. It defaults to `BorderRadius.circular(8)`
   final BorderRadius? borderRadius;
 
+  /// [padding] Allows the padding. It defaults to `EdgeInsets.symmetric(horizontal: 16)`
+  final EdgeInsetsGeometry? padding;
+
+  /// [margin] Allows the padding. It defaults to `EdgeInsets.zero`
+  final EdgeInsetsGeometry? margin;
+
   @override
   State<AdaptiveButton> createState() => _AdaptiveButtonState();
 }
@@ -49,14 +58,15 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: widget.margin ?? const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
       width: widget.width,
       height: widget.height,
-      margin: const EdgeInsets.all(8),
       child: kIsWeb != true
           ? Platform.isIOS
               ? CupertinoButton(
                   borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: widget.padding ??
+                      const EdgeInsets.symmetric(horizontal: 16),
                   color: widget.color ?? Colors.purple,
                   onPressed: widget.enabledLoading == true
                       ? isLoading != true
@@ -79,11 +89,14 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                       : widget.child)
               : ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                      shadowColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
                           borderRadius:
                               widget.borderRadius ?? BorderRadius.circular(8)),
                       backgroundColor: widget.color,
-                      padding: const EdgeInsets.symmetric(horizontal: 8)),
+                      padding: widget.padding ??
+                          const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4)),
                   onPressed: widget.enabledLoading == true
                       ? isLoading != true
                           ? () async {
@@ -109,11 +122,13 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                       : widget.child)
           : ElevatedButton(
               style: ElevatedButton.styleFrom(
+                  shadowColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
                       borderRadius:
                           widget.borderRadius ?? BorderRadius.circular(8)),
                   backgroundColor: widget.color,
-                  padding: const EdgeInsets.symmetric(horizontal: 8)),
+                  padding: widget.padding ??
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4)),
               onPressed: widget.enabledLoading == true
                   ? isLoading != true
                       ? () async {

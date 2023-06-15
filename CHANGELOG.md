@@ -1,3 +1,3 @@
-## 0.1.9
+## 0.2.5
 
-AdaptiveButton web button loading widget bug fixed.
+Change `onPressed` property `Future` changed to `FutureOr` .
