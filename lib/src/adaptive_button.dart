@@ -10,7 +10,7 @@ class AdaptiveButton extends StatefulWidget {
       this.width,
       this.height,
       required this.child,
-      required this.onPressed,
+       this.onPressed,
       this.color,
       this.borderRadius,
       this.enabledLoading,

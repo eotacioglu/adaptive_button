@@ -1,6 +1,6 @@
 name: adaptive_button
 description: It is compatible with the all platform, it disables the clicking feature of the button for your asynchronous operations and displays a widget on the button while waiting.
-version: 0.2.7
+version: 0.2.8
 homepage: https://github.com/eotacioglu/adaptive_button.git
 repository: https://github.com/eotacioglu/adaptive_button.git
 environment:
