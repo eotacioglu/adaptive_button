@@ -28,7 +28,7 @@ class AdaptiveButton extends StatefulWidget {
   final Widget child;
 
   /// [onPressed] It is used for the action that will run when the button is clicked. (required)
-  final FutureOr<dynamic> Function() onPressed;
+  final FutureOr<dynamic> Function()? onPressed;
 
   /// [enabledLoading] When set to `true`, it displays a widget as a child of the button in asynchronous operations. It defaults to `false`.
   final bool? enabledLoading;
@@ -54,33 +54,48 @@ class AdaptiveButton extends StatefulWidget {
 
 class _AdaptiveButtonState extends State<AdaptiveButton> {
   bool isLoading = false;
+  double minHeight = 40;
 
   @override
   Widget build(BuildContext context) {
+    // double? getHeight() {
+    //   if (widget.height == null) {
+    //     if (kIsWeb) {
+    //       return 40;
+    //     } else {
+    //       return widget.height;
+    //     }
+    //   }
+    //   return widget.height;
+    // }
+
     return Container(
-      margin: widget.margin ?? const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
+      constraints: BoxConstraints(minHeight: minHeight),
+      margin: widget.margin ??
+          const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       width: widget.width,
       height: widget.height,
       child: kIsWeb != true
           ? Platform.isIOS
               ? CupertinoButton(
+
                   borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
                   padding: widget.padding ??
                       const EdgeInsets.symmetric(horizontal: 16),
                   color: widget.color ?? Colors.purple,
-                  onPressed: widget.enabledLoading == true
+                  onPressed: widget.onPressed!=null? widget.enabledLoading == true
                       ? isLoading != true
                           ? () async {
                               setState(() {
                                 isLoading = true;
                               });
-                              await widget.onPressed();
+                              await widget.onPressed!();
                               setState(() {
                                 isLoading = false;
                               });
                             }
                           : null
-                      : widget.onPressed,
+                      : widget.onPressed:null,
                   child: widget.enabledLoading == true
                       ? isLoading == true
                           ? widget.loadingWidget ??
@@ -88,7 +103,9 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                           : widget.child
                       : widget.child)
               : ElevatedButton(
+
                   style: ElevatedButton.styleFrom(
+
                       shadowColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
                           borderRadius:
@@ -97,24 +114,22 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                       padding: widget.padding ??
                           const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 4)),
-                  onPressed: widget.enabledLoading == true
+                  onPressed: widget.onPressed!=null? widget.enabledLoading == true
                       ? isLoading != true
-                          ? () async {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              await widget.onPressed();
-                              setState(() {
-                                isLoading = false;
-                              });
-                            }
-                          : null
-                      : widget.onPressed,
+                      ? () async {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    await widget.onPressed!();
+                    setState(() {
+                      isLoading = false;
+                    });
+                  }
+                      : null
+                      : widget.onPressed:null,
                   child: widget.enabledLoading == true
                       ? isLoading == true
-                          ? SizedBox(
-                              height: 30,
-                              width: 30,
+                          ? Center(
                               child: widget.loadingWidget ??
                                   const CircularProgressIndicator(),
                             )
@@ -129,24 +144,22 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                   backgroundColor: widget.color,
                   padding: widget.padding ??
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4)),
-              onPressed: widget.enabledLoading == true
+              onPressed: widget.onPressed!=null? widget.enabledLoading == true
                   ? isLoading != true
-                      ? () async {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          await widget.onPressed();
-                          setState(() {
-                            isLoading = false;
-                          });
-                        }
-                      : null
-                  : widget.onPressed,
+                  ? () async {
+                setState(() {
+                  isLoading = true;
+                });
+                await widget.onPressed!();
+                setState(() {
+                  isLoading = false;
+                });
+              }
+                  : null
+                  : widget.onPressed:null,
               child: widget.enabledLoading == true
                   ? isLoading == true
-                      ? SizedBox(
-                          height: 30,
-                          width: 30,
+                      ? Center(
                           child: widget.loadingWidget ??
                               const CircularProgressIndicator(),
                         )

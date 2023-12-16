@@ -1,3 +1,3 @@
-## 0.2.5
+## 0.2.7
 
-Change `onPressed` property `Future` changed to `FutureOr` .
+onPress method add nullable.
