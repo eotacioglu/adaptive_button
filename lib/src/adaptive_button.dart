@@ -10,7 +10,7 @@ class AdaptiveButton extends StatefulWidget {
       this.width,
       this.height,
       required this.child,
-       this.onPressed,
+      this.onPressed,
       this.color,
       this.borderRadius,
       this.enabledLoading,
@@ -78,12 +78,99 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
       child: kIsWeb != true
           ? Platform.isIOS
               ? CupertinoButton(
-
                   borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
                   padding: widget.padding ??
                       const EdgeInsets.symmetric(horizontal: 16),
-                  color: widget.color ?? Colors.purple,
-                  onPressed: widget.onPressed!=null? widget.enabledLoading == true
+                  color: widget.color ?? Theme.of(context).colorScheme.primary,
+                  onPressed: widget.onPressed != null
+                      ? widget.enabledLoading == true
+                          ? isLoading != true
+                              ? () async {
+                                  setState(() {
+                                    isLoading = true;
+                                  });
+                                  await widget.onPressed!();
+                                  setState(() {
+                                    isLoading = false;
+                                  });
+                                }
+                              : null
+                          : widget.onPressed
+                      : null,
+                  child: Theme(
+                    data: Theme.of(context).copyWith(
+                        textTheme: Theme.of(context).textTheme.copyWith(
+                            labelMedium: Theme.of(context)
+                                .textTheme
+                                .labelMedium
+                                ?.copyWith(
+                                    color: widget.onPressed != null
+                                        ? Colors.white
+                                        : Colors.grey.shade400,
+                                    fontWeight: FontWeight.bold))),
+                    child: widget.enabledLoading == true
+                        ? isLoading == true
+                            ? widget.loadingWidget ??
+                                const CupertinoActivityIndicator()
+                            : widget.child
+                        : widget.child,
+                  ))
+              : ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      shadowColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              widget.borderRadius ?? BorderRadius.circular(8)),
+                      backgroundColor: widget.color ?? Theme.of(context).colorScheme.primary,
+                      padding: widget.padding ??
+                          const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4)),
+                  onPressed: widget.onPressed != null
+                      ? widget.enabledLoading == true
+                          ? isLoading != true
+                              ? () async {
+                                  setState(() {
+                                    isLoading = true;
+                                  });
+                                  await widget.onPressed!();
+                                  setState(() {
+                                    isLoading = false;
+                                  });
+                                }
+                              : null
+                          : widget.onPressed
+                      : null,
+                  child: Theme(
+                    data: Theme.of(context).copyWith(
+                        textTheme: Theme.of(context).textTheme.copyWith(
+                            labelMedium: Theme.of(context)
+                                .textTheme
+                                .labelMedium
+                                ?.copyWith(
+                                color: widget.onPressed != null
+                                    ? Colors.white
+                                    : Colors.grey.shade400,
+                                fontWeight: FontWeight.bold))),
+                    child: widget.enabledLoading == true
+                        ? isLoading == true
+                            ? Center(
+                                child: widget.loadingWidget ??
+                                    const CircularProgressIndicator(),
+                              )
+                            : widget.child
+                        : widget.child,
+                  ))
+          : ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shadowColor: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          widget.borderRadius ?? BorderRadius.circular(8)),
+                  backgroundColor: widget.color ?? Theme.of(context).colorScheme.primary,
+                  padding: widget.padding ??
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4)),
+              onPressed: widget.onPressed != null
+                  ? widget.enabledLoading == true
                       ? isLoading != true
                           ? () async {
                               setState(() {
@@ -95,76 +182,28 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                               });
                             }
                           : null
-                      : widget.onPressed:null,
-                  child: widget.enabledLoading == true
-                      ? isLoading == true
-                          ? widget.loadingWidget ??
-                              const CupertinoActivityIndicator()
-                          : widget.child
-                      : widget.child)
-              : ElevatedButton(
-
-                  style: ElevatedButton.styleFrom(
-
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              widget.borderRadius ?? BorderRadius.circular(8)),
-                      backgroundColor: widget.color,
-                      padding: widget.padding ??
-                          const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 4)),
-                  onPressed: widget.onPressed!=null? widget.enabledLoading == true
-                      ? isLoading != true
-                      ? () async {
-                    setState(() {
-                      isLoading = true;
-                    });
-                    await widget.onPressed!();
-                    setState(() {
-                      isLoading = false;
-                    });
-                  }
-                      : null
-                      : widget.onPressed:null,
-                  child: widget.enabledLoading == true
-                      ? isLoading == true
-                          ? Center(
-                              child: widget.loadingWidget ??
-                                  const CircularProgressIndicator(),
-                            )
-                          : widget.child
-                      : widget.child)
-          : ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  shadowColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                      borderRadius:
-                          widget.borderRadius ?? BorderRadius.circular(8)),
-                  backgroundColor: widget.color,
-                  padding: widget.padding ??
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4)),
-              onPressed: widget.onPressed!=null? widget.enabledLoading == true
-                  ? isLoading != true
-                  ? () async {
-                setState(() {
-                  isLoading = true;
-                });
-                await widget.onPressed!();
-                setState(() {
-                  isLoading = false;
-                });
-              }
-                  : null
-                  : widget.onPressed:null,
-              child: widget.enabledLoading == true
-                  ? isLoading == true
-                      ? Center(
-                          child: widget.loadingWidget ??
-                              const CircularProgressIndicator(),
-                        )
-                      : widget.child
-                  : widget.child),
+                      : widget.onPressed
+                  : null,
+              child: Theme(
+                data: Theme.of(context).copyWith(
+                    textTheme: Theme.of(context).textTheme.copyWith(
+                        labelMedium: Theme.of(context)
+                            .textTheme
+                            .labelMedium
+                            ?.copyWith(
+                            color: widget.onPressed != null
+                                ? Colors.white
+                                : Colors.grey.shade400,
+                            fontWeight: FontWeight.bold))),
+                child: widget.enabledLoading == true
+                    ? isLoading == true
+                        ? Center(
+                            child: widget.loadingWidget ??
+                                const CircularProgressIndicator(),
+                          )
+                        : widget.child
+                    : widget.child,
+              )),
     );
   }
 }
