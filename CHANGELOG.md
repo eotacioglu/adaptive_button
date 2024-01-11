@@ -1,3 +1,3 @@
-## 0.2.9
+## 0.3.0
 
-Add disabledButton property and update button child theme.
+Changed height property default value.

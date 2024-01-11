@@ -54,7 +54,7 @@ class AdaptiveButton extends StatefulWidget {
 
 class _AdaptiveButtonState extends State<AdaptiveButton> {
   bool isLoading = false;
-  double minHeight = 40;
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +70,11 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
     // }
 
     return Container(
-      constraints: BoxConstraints(minHeight: minHeight),
+
       margin: widget.margin ??
           const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       width: widget.width,
-      height: widget.height,
+      height: widget.height??30,
       child: kIsWeb != true
           ? Platform.isIOS
               ? CupertinoButton(
