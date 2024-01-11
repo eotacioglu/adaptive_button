@@ -111,7 +111,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                     child: widget.enabledLoading == true
                         ? isLoading == true
                             ? widget.loadingWidget ??
-                                const CupertinoActivityIndicator()
+                                const CircularProgressIndicator.adaptive()
                             : widget.child
                         : widget.child,
                   ))
@@ -155,7 +155,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                         ? isLoading == true
                             ? Center(
                                 child: widget.loadingWidget ??
-                                    const CircularProgressIndicator(),
+                                    const CircularProgressIndicator.adaptive(),
                               )
                             : widget.child
                         : widget.child,
@@ -199,7 +199,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton> {
                     ? isLoading == true
                         ? Center(
                             child: widget.loadingWidget ??
-                                const CircularProgressIndicator(),
+                                const CircularProgressIndicator.adaptive(),
                           )
                         : widget.child
                     : widget.child,
